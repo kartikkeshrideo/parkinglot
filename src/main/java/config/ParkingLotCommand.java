@@ -1,6 +1,6 @@
 package config;
 
-public enum  ParkingLotCommand {
+public enum ParkingLotCommand {
     create_parking_lot,
     park,
     leave,

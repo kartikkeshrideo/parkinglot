@@ -1,5 +1,6 @@
 package model;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
@@ -10,8 +11,8 @@ public class ParkingLot {
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
-        for(int i=0;i<capacity;i++) {
-            availableSlots.add(i+1);
+        for (int i = 0; i < capacity; i++) {
+            availableSlots.add(i + 1);
         }
     }
 
