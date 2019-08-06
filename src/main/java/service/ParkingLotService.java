@@ -38,7 +38,7 @@ public class ParkingLotService {
     }
 
     public void status() {
-        System.out.println("Slot No.\t\t\t\t\tRegistration No\t\t\t\t\tColour");
+        System.out.println("Slot No.\t\t\tRegistration No\t\t\t\t\tColour");
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
             System.out.println(entry.getKey() + "\t\t\t\t\t" +
                     entry.getValue().getRegNo() + "\t\t\t\t\t" + entry.getValue().getColor());
