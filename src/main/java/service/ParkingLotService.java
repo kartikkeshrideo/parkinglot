@@ -72,8 +72,8 @@ public class ParkingLotService {
                 regNos.add(entry.getValue().getRegNo());
             }
         }
-        System.out.println(String.join(",", regNos));
-        return String.join(",", regNos);
+        System.out.println(String.join(", ", regNos));
+        return String.join(", ", regNos);
     }
 
     public String getSlotNoForCarsWithColor(String color) {
@@ -87,8 +87,8 @@ public class ParkingLotService {
                 slotNos.add(entry.getKey().toString());
             }
         }
-        System.out.println(String.join(",", slotNos));
-        return String.join(",", slotNos);
+        System.out.println(String.join(", ", slotNos));
+        return String.join(", ", slotNos);
     }
 
     public int getSlotNoByCarRegNo(String regNo) {
