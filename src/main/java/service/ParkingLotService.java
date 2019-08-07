@@ -16,6 +16,10 @@ public class ParkingLotService {
     }
 
     public void parkCar(Car car) {
+        if(parkingLot == null) {
+            System.out.println("Parking lot is not created, please create it first.");
+            return;
+        }
         if (parkingLot.isFull()) {
             System.out.println("Sorry, parking lot is full");
             return;
@@ -28,6 +32,10 @@ public class ParkingLotService {
     }
 
     public void unparkCar(int slotNo) {
+        if(parkingLot == null) {
+            System.out.println("Parking lot is not created, please create it first.");
+            return;
+        }
         if (parkingLot.getCarsParked().containsKey(slotNo)) {
             parkingLot.getCarsParked().remove(slotNo);
             parkingLot.getAvailableSlots().add(slotNo);
@@ -38,6 +46,10 @@ public class ParkingLotService {
     }
 
     public void status() {
+        if(parkingLot == null) {
+            System.out.println("Parking lot is not created, please create it first.");
+            return;
+        }
         System.out.println("Slot No.\t\t\tRegistration No\t\t\t\t\tColour");
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
             System.out.println(entry.getKey() + "\t\t\t\t\t" +
@@ -46,6 +58,10 @@ public class ParkingLotService {
     }
 
     public void getRegNoForCarsWithColor(String color) {
+        if(parkingLot == null) {
+            System.out.println("Parking lot is not created, please create it first.");
+            return;
+        }
         List<String> regNos = new ArrayList<>();
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
             if (entry.getValue().getColor().equals(color)) {
@@ -56,6 +72,10 @@ public class ParkingLotService {
     }
 
     public void getSlotNoForCarsWithColor(String color) {
+        if(parkingLot == null) {
+            System.out.println("Parking lot is not created, please create it first.");
+            return;
+        }
         List<String> slotNos = new ArrayList<>();
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
             if (entry.getValue().getColor().equals(color)) {
@@ -66,6 +86,10 @@ public class ParkingLotService {
     }
 
     public void getSlotNoByCarRegNo(String regNo) {
+        if(parkingLot == null) {
+            System.out.println("Parking lot is not created, please create it first.");
+            return;
+        }
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
             if (entry.getValue().getRegNo().equals(regNo)) {
                 System.out.println(entry.getKey());
