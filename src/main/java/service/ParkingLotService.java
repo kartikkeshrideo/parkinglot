@@ -10,6 +10,10 @@ import java.util.Map;
 public class ParkingLotService {
     private static ParkingLot parkingLot;
 
+    public ParkingLot getParkingLot() {
+        return parkingLot;
+    }
+
     public void createParkingLot(int capacity) {
         parkingLot = new ParkingLot(capacity);
         System.out.println("Created a parking lot with " + capacity + " slots");
@@ -57,10 +61,10 @@ public class ParkingLotService {
         }
     }
 
-    public void getRegNoForCarsWithColor(String color) {
+    public String getRegNoForCarsWithColor(String color) {
         if(parkingLot == null) {
             System.out.println("Parking lot is not created, please create it first.");
-            return;
+            return null;
         }
         List<String> regNos = new ArrayList<>();
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
@@ -69,12 +73,13 @@ public class ParkingLotService {
             }
         }
         System.out.println(String.join(",", regNos));
+        return String.join(",", regNos);
     }
 
-    public void getSlotNoForCarsWithColor(String color) {
+    public String getSlotNoForCarsWithColor(String color) {
         if(parkingLot == null) {
             System.out.println("Parking lot is not created, please create it first.");
-            return;
+            return null;
         }
         List<String> slotNos = new ArrayList<>();
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
@@ -83,19 +88,21 @@ public class ParkingLotService {
             }
         }
         System.out.println(String.join(",", slotNos));
+        return String.join(",", slotNos);
     }
 
-    public void getSlotNoByCarRegNo(String regNo) {
+    public int getSlotNoByCarRegNo(String regNo) {
         if(parkingLot == null) {
             System.out.println("Parking lot is not created, please create it first.");
-            return;
+            return -1;
         }
         for (Map.Entry<Integer, Car> entry : parkingLot.getCarsParked().entrySet()) {
             if (entry.getValue().getRegNo().equals(regNo)) {
                 System.out.println(entry.getKey());
-                return;
+                return entry.getKey();
             }
         }
         System.out.println("Not found");
+        return -1;
     }
 }
