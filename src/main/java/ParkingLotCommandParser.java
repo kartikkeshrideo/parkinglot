@@ -1,11 +1,15 @@
+import api.ParkingLotApi;
 import config.ParkingLotCommand;
+import factory.ParkingLotApiFactory;
+import factory.ParkingLotServiceFactory;
 import model.Car;
 import service.ParkingLotService;
 
 import java.io.*;
 
 public class ParkingLotCommandParser {
-    private static final ParkingLotService parkingLotService = new ParkingLotService();
+    private static final ParkingLotService parkingLotService = ParkingLotServiceFactory.getInstance();
+    private static final ParkingLotApi parkingLotApi = new ParkingLotApiFactory(parkingLotService).getInstance();
 
     public ParkingLotCommandParser() {
 
@@ -15,25 +19,25 @@ public class ParkingLotCommandParser {
         String[] args = input.split(" ");
         switch (ParkingLotCommand.valueOf(args[0])) {
             case create_parking_lot:
-                parkingLotService.createParkingLot(Integer.valueOf(args[1]));
+                parkingLotApi.createParkingLot(Integer.valueOf(args[1]));
                 break;
             case status:
-                parkingLotService.status();
+                parkingLotApi.status();
                 break;
             case park:
-                parkingLotService.parkCar(new Car(args[1], args[2]));
+                parkingLotApi.parkCar(new Car(args[1], args[2]));
                 break;
             case leave:
-                parkingLotService.unparkCar(Integer.valueOf(args[1]));
+                parkingLotApi.unparkCar(Integer.valueOf(args[1]));
                 break;
             case slot_numbers_for_cars_with_colour:
-                parkingLotService.getSlotNoForCarsWithColor(args[1]);
+                parkingLotApi.getSlotNoForCarsWithColor(args[1]);
                 break;
             case slot_number_for_registration_number:
-                parkingLotService.getSlotNoByCarRegNo(args[1]);
+                parkingLotApi.getSlotNoByCarRegNo(args[1]);
                 break;
             case registration_numbers_for_cars_with_colour:
-                parkingLotService.getRegNoForCarsWithColor(args[1]);
+                parkingLotApi.getRegNoForCarsWithColor(args[1]);
                 break;
 
         }
