@@ -1,6 +1,7 @@
 # parkinglot
 
 Run the project using below commands.
+Go to folder /parkinglot
 
 # 1> ./parking_lot.sh <input_file_name>
 The input filename is expected.
