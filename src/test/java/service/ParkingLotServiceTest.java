@@ -58,7 +58,7 @@ public class ParkingLotServiceTest {
         parkingLotService.parkCar(new Car("2345", "black"));
         String actual1 = parkingLotService.getRegNoForCarsWithColor("white");
         String actual2 = parkingLotService.getRegNoForCarsWithColor("black");
-        assertEquals("1234,12345", actual1);
+        assertEquals("1234, 12345", actual1);
         assertEquals("2345", actual2);
     }
 
@@ -69,6 +69,6 @@ public class ParkingLotServiceTest {
         parkingLotService.parkCar(new Car("12345", "white"));
         parkingLotService.parkCar(new Car("2345", "black"));
         String actualSlotNos = parkingLotService.getSlotNoForCarsWithColor("white");
-        assertEquals("1,2", actualSlotNos);
+        assertEquals("1, 2", actualSlotNos);
     }
 }
